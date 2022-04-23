@@ -1,0 +1,25 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Metriken
+    numbered: 1  
+    chapters:
+    - file: Definition
+    - file: MinkowskiI
+    - file: dimensionen
+    - file: otherm
+    - file: cheatsheet
+  - caption: Anhang
+    numbered: False
+    chapters:
+    - file: codeanhang
+    - file: req    
+    - file: beweise
+    - file: markdown
+
+    
+
+

@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Andere Metriken &#8212; Distanz-Metriken für Data Science und Statistisches Lernen</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python Codes" href="codeanhang.html" />
+    <link rel="prev" title="3. Exkurs: das Dimensionsproblem" href="dimensionen.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Distanz-Metriken für Data Science und Statistisches Lernen</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Distanz-Metriken für Data Science und Statistisches Lernen
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Metriken
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Definition.html">
+   1. Definition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MinkowskiI.html">
+   2. Minkowski-Metriken
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dimensionen.html">
+   3. Exkurs: das Dimensionsproblem
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Andere Metriken
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Anhang
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="codeanhang.html">
+   Python Codes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="req.html">
+   Python Requirements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="beweise.html">
+   Beweise
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Literaturverzeichnis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/otherm.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fotherm.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metriken-fur-nicht-numerische-objekte">
+   Metriken für nicht-numerische Objekte
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metriken-fur-zeichenketten">
+     Metriken für Zeichenketten
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hamming-distanz">
+       Hamming Distanz
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#levenshtein-distanz">
+       Levenshtein Distanz
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#longest-common-subsequence">
+       Longest common subsequence
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#motivation">
+         Motivation
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#definition">
+         Definition
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metriken-fur-mengen">
+     Metriken für Mengen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distanz-zweier-teilmengen-des-mathbb-r-d">
+       Distanz zweier Teilmengen des
+       <span class="math notranslate nohighlight">
+        \(\mathbb{R}^d\)
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Andere Metriken</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metriken-fur-nicht-numerische-objekte">
+   Metriken für nicht-numerische Objekte
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metriken-fur-zeichenketten">
+     Metriken für Zeichenketten
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#hamming-distanz">
+       Hamming Distanz
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#levenshtein-distanz">
+       Levenshtein Distanz
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#longest-common-subsequence">
+       Longest common subsequence
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#motivation">
+         Motivation
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#definition">
+         Definition
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metriken-fur-mengen">
+     Metriken für Mengen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distanz-zweier-teilmengen-des-mathbb-r-d">
+       Distanz zweier Teilmengen des
+       <span class="math notranslate nohighlight">
+        \(\mathbb{R}^d\)
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="andere-metriken">
+<h1><span class="section-number">4. </span>Andere Metriken<a class="headerlink" href="#andere-metriken" title="Permalink to this headline">¶</a></h1>
+<p>Dieses Kapitel ist einigen wenigen, aber für die Data Science und das statistische Lernen wichitige Metriken.</p>
+<div class="section" id="metriken-fur-nicht-numerische-objekte">
+<h2>Metriken für nicht-numerische Objekte<a class="headerlink" href="#metriken-fur-nicht-numerische-objekte" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="metriken-fur-zeichenketten">
+<h3>Metriken für Zeichenketten<a class="headerlink" href="#metriken-fur-zeichenketten" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="hamming-distanz">
+<h4>Hamming Distanz<a class="headerlink" href="#hamming-distanz" title="Permalink to this headline">¶</a></h4>
+<p>Die Hamming Distanz zählt die Anzahl an Abweichungen zwischen zwei Elementen eines Raumes. Sie ist für <span class="math notranslate nohighlight">\(x, y \in M \neq \emptyset\)</span> als</p>
+<div class="math notranslate nohighlight">
+\[ \delta_H (x,y) = |\{i: x_i \neq y_i\}|  \]</div>
+<p>definiert.</p>
+<p>Dadurch lässt sie sich auch für nicht-numerische Daten wie bspw. Wörter anwenden und findet häufig Anwendungen in Fehlersuche<span id="id1">[<a class="reference internal" href="markdown.html#id12" title="W. Suntiamorntut. Hamming distance and normalization circuits. In 2007 International Conference on Communications, Circuits and Systems, volume, 1053-1056. 2007. doi:10.1109/ICCCAS.2007.4348227.">Sun07</a>]</span>  und natural language processing.</p>
+<p>Die Hamming Distanz findet ebenfalls Anwendung in der DNA-Sequenzanalyse<span id="id2">[<a class="reference internal" href="markdown.html#id10" title="Mina Mohammadi-Kambs, Kathrin Hölz, Mark M Somoza, and Albrecht Ott. Hamming distance as a concept in DNA molecular recognition. ACS Omega, 2(4):1302–1308, April 2017.">MKHolzSO17</a>]</span>.</p>
+<div class="note admonition">
+<p class="admonition-title"><span class="math notranslate nohighlight">\(d_h\)</span> ist eine Metrik</p>
+<p>Die Hamming Distanz ist für Elemente gleicher Länge eine Metrik, da sie alle Eigenschaften einer erfüllt<span id="id3">[<a class="reference internal" href="markdown.html#id4" title="Derek J.S. Robinson. An Introduction to Abstract Algebra. De Gruyter textbook. Walter de Gruyter, 2003. ISBN 9783110175448.">Rob03</a>]</span>.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Interpretabilität</p>
+<p><span class="math notranslate nohighlight">\(\delta_H\)</span> ist sehr gut für rein-kategorische Daten geeignet und macht am meisten Sinn, wenn diese nur zwei Ausprägungen haben oder kein sinnvoller Abstand zwischen den Ausprägungen gebildet werden kann.</p>
+<p>Beispiel hierfür wäre ein Risikogruppen-Klassifikations-Datensatz der Informationen zu Geschlecht, Hautfarbe, Augenfarbe, Haarfarbe und einem binären Merkmal, ob Verwandte an Hautkrebs erkrankt sind, enthält.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">unintuitive Eigenschaften</p>
+<p>Für die Hamming Distanz zählen nur die Anzahl der Abweichungen, nicht deren Größe(nordnung)! Auf einer Ebene hätten die Punkte
+<span class="math notranslate nohighlight">\([-\infty ,0]\)</span> und <span class="math notranslate nohighlight">\([\infty, 0]\)</span> beide Abstand 1 zueinander, zum Nullpunkt und zu jedem Punkt auf der Gerade zwischen ihnen.</p>
+<p>Der Einheitskreis der Hamming Metrik in reellen Räumen mit Dimension <span class="math notranslate nohighlight">\(d \geq 2\)</span> sind die Achsen. Alle anderen Punkte hätten Abstand <span class="math notranslate nohighlight">\(d\)</span> zum Nullpunkt.</p>
+</div>
+</div>
+<div class="section" id="levenshtein-distanz">
+<h4>Levenshtein Distanz<a class="headerlink" href="#levenshtein-distanz" title="Permalink to this headline">¶</a></h4>
+<p>Die Levenshtein Distanz ist auch als Editierdistanz bekannt und beschreibt die minimale Anzahl an nötigen Modifikationen an einer Zeichenkette, um sie in eine andere Zeichenkette zu überführen.</p>
+<p>Die Modifikationen können Löschung, Hinzufügen oder Ersetzen von Zeichen sein.</p>
+<p>Seien <span class="math notranslate nohighlight">\(a, b\)</span> Zeichenketten mit Längen <span class="math notranslate nohighlight">\(|a|, |b|\)</span>. Dann ist die Levenshtein Distanz für sie als</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\delta_L(a,b) = \begin{cases} 
+|a| &amp; \text{falls } |b| = 0 \\
+|b| &amp; \text{falls } |a| = 0 \\
+\delta_L(a_{1,2,...,|a|}, b_{1,2,...,|b|}) &amp; \text{falls } a_0 = b_0 \\
+1+ \min \begin{cases}
+        \delta_L(a_{1,2,...,|a|}, b) \\
+        \delta_L(a, b_{1,2,...,|b|})  \hspace{3cm} \text{sonst} \\
+        \delta_L(a_{1,2,...,|a|}, b_{1,2,...,|b|}) \\
+        \end{cases}
+    
+\end{cases}\end{split}\]</div>
+<p>definiert.</p>
+<p>Die Definiton ist rekursiv und die Berechnung der Distanz geschieht meistens über Matritzen. (Eine genauere Ausführung wird in späteren Versionen dieses JupyterBooks folgen)</p>
+<p>Die Levenshtein Distanz wird häufig für unscharfe Suchen, Rechtschreibprüfungen und Duplikatssuche verwendet, findet aber auch in der Linguistik zur Ähnlichkeitsanalyse von Sprachen<span id="id4">[<a class="reference internal" href="markdown.html#id13" title="J.D. Thije and L. Zeevaert. Receptive Multilingualism: Linguistic Analyses, Language Policies, and Didactic Concepts. Hamburg studies on multilingualism. J. Benjamins Publishing Company, 2007. ISBN 9789027219268.">TZ07</a>]</span> gebrauch.</p>
+<div class="tip admonition">
+<p class="admonition-title">Hamming vs Levenshtein Distanz</p>
+<p>Die Hamming und Levenshtein Distanz können für manche Zeichenketten zwar die selben Abstände liefern, tun es aber im allgemeinen nicht. So ist bspw
+<span class="math notranslate nohighlight">\(d_H(\text{abcdefg}, \text{bcdefgh}) = 7 \neq 2 = d_L(\text{abcdefg}, \text{bcdefgh})\)</span></p>
+<p>Im Gegensatz zur Levenshtein Distanz, lässt die Hamming Distanz nur Ersetzungen zu.</p>
+<p>Die unintuitiven Eigenschaften der Hamming Distanz sind jedoch auch der Levenshtein Distanz eigen.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Erweiterungen der Levenshtein Distanz</p>
+<p>Es gibt zwar Erweiterungen wie die Damerau–Levenshtein-Distanz, die auch Transposition von Zeichen erlaubt, jedoch ist diese keine Metrik mehr, da sie die Dreiecksungleichung im Allgemeinen nicht erfüllt.</p>
+<p>Auch die fälschlicherweise “Jaro-Winkler-Metrik” genannte Jaro-Winkler-Distanz, die nur Transpositionen zulässt, ist keine Metrik, da sie gegen die Dreiecksungleichung verstößt.</p>
+</div>
+</div>
+<div class="section" id="longest-common-subsequence">
+<h4>Longest common subsequence<a class="headerlink" href="#longest-common-subsequence" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="motivation">
+<h5>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h5>
+<p>In der Sequenzanalyse ist in manchen Anwendungen (bspw. Linguistik und Bioinformatik) die Ähnlichkeit interessanter als der Abstand. Ein Ähnlichkeitsmaß ist die längste gemeinsame Teilsequenz.</p>
+<p>Teilsequenzen sind allgemeiner als Teilzeichenketten, da die Zeichen nicht nebeneinander liegen müssen; z.B.: ist TAGTACC die längste gemeinsame Teilsequenz der Zeichenketten A<strong>T</strong>GA<strong>GT</strong>C<strong>AC</strong>T<strong>C</strong> und <strong>TA</strong>C<strong>G</strong>CC<strong>TACC</strong>.</p>
+</div>
+<div class="section" id="definition">
+<h5>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h5>
+<p>Seien <span class="math notranslate nohighlight">\(a,b\)</span> Zeichenketten der Längen <span class="math notranslate nohighlight">\(|a|, |b|\)</span> mit <span class="math notranslate nohighlight">\(|a|&gt;0\)</span> oder <span class="math notranslate nohighlight">\(|b| &gt; 0\)</span> und einer längsten gemeinsamen Teilsequenz <span class="math notranslate nohighlight">\(c\)</span>. Dann ist</p>
+<div class="math notranslate nohighlight">
+\[ \delta_{LSC}(a,b) = 1 - \frac{|c|}{\max(|a|,|b|)} \]</div>
+<p>eine Metrik.</p>
+<p>Die Definiton dieser geht auf Daniel Bakkelund<span id="id5">[<a class="reference internal" href="markdown.html#id14" title="Daniel Bakkelund. An lcs-based string metric. self published, 2009. URL: https://www.researchgate.net/profile/Daniel-Bakkelund/publication/242065008_An_LCS-based_string_metric/links/57ff543b08ae56fae5f55421/An-LCS-based-string-metric.pdf.">Bak09</a>]</span>  zurück.</p>
+<p>Informell ausgedrückt wird hier gemessen, inwieweit sich die längste gemeinsame Teilsequenz von der längsten Zeichenkette unterscheidet; der Wertebereich ist immer <span class="math notranslate nohighlight">\([0,1]\)</span></p>
+<div class="note admonition">
+<p class="admonition-title">Vergleich zur Levenshtein Distanz</p>
+<p>Im Gegensatz zur Levenshtein Distanz ist bei der LSC-Problemstellung nur die Löschung erlaubt.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metriken-fur-mengen">
+<h3>Metriken für Mengen<a class="headerlink" href="#metriken-fur-mengen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="distanz-zweier-teilmengen-des-mathbb-r-d">
+<h4>Distanz zweier Teilmengen des <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span><a class="headerlink" href="#distanz-zweier-teilmengen-des-mathbb-r-d" title="Permalink to this headline">¶</a></h4>
+<p>Seien <span class="math notranslate nohighlight">\(M, N \subset \mathbb{R}^d\)</span>. Dann ist die Distanz zwischen diesen für eine Metrik
+<span class="math notranslate nohighlight">\(\delta : \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R} \)</span>
+als
+$<span class="math notranslate nohighlight">\(\delta_S(M,N) = \inf_{\substack{x \in M \\ y\in N}} \delta(x,y)\)</span>$
+definiert.</p>
+<p>Dabei ist das Infimum <span class="math notranslate nohighlight">\(\inf\)</span> die größte untere Schranke. Im Falle, dass das Minimum angeommen wird, sind Infimum und Minimum gleich.</p>
+<div class="warning admonition">
+<p class="admonition-title">gegebenenfalls keine Metriken!</p>
+<p>Die oben angeführte Funktion ist zwar für allgemeine Mengen definiert, jedoch nur eine Metrik, falls <span class="math notranslate nohighlight">\(M \cap N  \in \{ \emptyset, M, N \} \)</span>, also wenn die Mengen keine gemeinsamen Punkte haben oder eine Teilmenge der anderen ist.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Eindeutigkeit</p>
+<p>Wie erwähnt liefern uns verschiedene Metriken andere Distanzen, weswegen sich die Infima für verschiedene Metriken unterscheiden können. Die Distanz zweier Teilmengen des <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span> ist deswegen nicht eindeutig.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="dimensionen.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Exkurs: das Dimensionsproblem</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="codeanhang.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python Codes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Jawor Iwanow<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
