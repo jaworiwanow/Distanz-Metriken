@@ -126,6 +126,16 @@ const thebe_selector_output = ".output, .cell_output"
    4. Andere Metriken
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cheatsheet.html">
+   5. Cheat-Sheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ausblick.html">
+   6. Ausblick und Ziele
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -210,11 +220,11 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://jaworiwanow.github.io/Distanz-Metriken"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDefinition.html&body=Your%20issue%20content%20here."><button
+            href="https://jaworiwanow.github.io/Distanz-Metriken/issues/new?title=Issue%20on%20page%20%2FDefinition.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -293,8 +303,9 @@ const thebe_selector_output = ".output, .cell_output"
 <h1><span class="section-number">1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
-<p>Erst durch eine Metrik können wir Nähe, Ähnlichkeit und Distanz quantifizieren.</p>
-<p>Einige Verfahren die wir bereits kennengelernt haben (z.b.: kNN Regressoren und Classifier, k-Means, DBSCAN, Agglomerative Clustering ) und weitere noch unbekannte (bspw. in image recognition und NLP ) benötigen einen Abstandsbegriff.</p>
+<p>Erst durch eine Metrik können wir Abstand, Nähe und Ähnlichkeit quantifizieren.</p>
+<p>Einige Verfahren die wir bereits kennengelernt haben (z.b.: kNN Regressoren und Classifier, k-Means, DBSCAN, Agglomerative Clustering ) und weitere noch unbekannte (bspw. in image recognition und NLP ) basieren explizit auf einen Abstandsbegriff.</p>
+<p>Doch dieser ist weitaus fundamentaler; Geometrie, Stochastik, Integralrechnung und Differenzialrechnung benötigen einen Abstandsbegriff.</p>
 <p>Da verschiedene Metriken jedoch unterschiedliche Eigenschaften haben, kann ein Verständnis dieser von Vorteil sein.</p>
 </div>
 <div class="section" id="id1">
@@ -356,7 +367,8 @@ Mathematische Symbole<div class="summary-down docutils">
 0 &amp; \text{falls } x = y \\
 1 &amp; \text{sonst}
 \end{cases} \)</span>
-auf jeder Menge definierbar</p>
+auf jeder Menge definierbar.</p>
+<p>Es ist sogar möglich Abstände auf hoch-abstrakte Konzepte wie z.B.: Spielstrategien (Helly Metrik) zu definieren.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Geschichte</p>
@@ -419,7 +431,7 @@ auf jeder Menge definierbar</p>
     
       By Jawor Iwanow<br/>
     
-        &copy; Copyright 2021.<br/>
+        &copy; Copyright 2022.<br/>
   </p>
 </footer>
 </main>

@@ -121,8 +121,12 @@
 # Seien $M, N \subset \mathbb{R}^d$. Dann ist die Distanz zwischen diesen für eine Metrik
 # $\delta : \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R} $
 # als 
-# $$\delta_S(M,N) = \inf_{\substack{x \in M \\ y\in N}} \delta(x,y)$$
+# 
+# \begin{equation} \delta_S(M,N) = \inf_{\substack{x \in M \\ y\in N}} \delta(x,y) 
+# \end{equation}
+# 
 # definiert.
+# 
 # 
 # Dabei ist das Infimum $\inf$ die größte untere Schranke. Im Falle, dass das Minimum angeommen wird, sind Infimum und Minimum gleich.
 # 

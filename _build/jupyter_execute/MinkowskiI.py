@@ -26,7 +26,7 @@
 # 
 # $\mathbb{R}^n$ ist die Menge der n-dimensionalen reelwertigen Vektoren, also aller $[x_1, x_2, .... x_n]$ mit $\forall i \in \{1, 2, ... , n \}: x_i \in \mathbb{R}$
 # 
-# $\sum_{i=1}^n $ ist die Summe über den Index $\{1, 2, ... , n \} $
+# $\sum_{i=1}^n$ ist die Summe über den Index $\{1, 2, ... , n \} $
 # 
 # ```
 # In den [Beweisen](MinkowskiBeweise) findet sich der Beweis dafür, dass die Definition für $p = \infty$ sinnvoll definiert ist.
@@ -67,7 +67,9 @@
 # Die Sinnhaftigkeit und Interpretabilität des euklidischen Abstandes setzt jedoch voraus, dass der Pfad im gegebenen Raum wirklich durchschritten werden kann. 
 # 
 # ##### $p = 1$  (Manhattan)
-# Für $p =1$ ergibt sich $ \delta(x,y) = \sum_{i=1}^n |x_i - y_i|$, die Summe der Betragsdifferenzen. 
+# Für $p =1$ ergibt sich 
+# \begin{equation*} \delta(x,y) = \sum_{i=1}^n |x_i - y_i| \end{equation*}
+# , also die Summe der Betragsdifferenzen. 
 # 
 # Dies ist die aus der Summennorm induzierte, uns bereits bekannte Manhattan-Distanz. 
 # 
@@ -160,7 +162,7 @@
 # ````
 
 # ### Einheitssphären
-# Unter Einheits-Kugeln (2D) und Sphären (3D) versteht man die Mengen aller Punkte, dere Abstand zum Nullpunkt eins ist.
+# Unter Einheits-Kreisen (2D) und Sphären (3D und höher) versteht man die Mengen aller Punkte, dere Abstand zum Nullpunkt 1 ist.
 # 
 # Die unten generierten Plots basieren auf von mir erweiterten [Codes](https://mimmackk.github.io/unitball/) und Überlegungen von Kayden Mimmack{cite:ps}`unitsphereplot` 
 
@@ -180,9 +182,16 @@
 # ````
 
 # Die "Expansion" des Kreises oder der Kugel stellen die vorhin schon gezeigte Verringerung der Abstände; 
-# das mit dem Volumen expandierende Innere der Kugel sind alle Punkte, deren Abstand zu 0 kleiner als 1 ist. 
+# das mit dem Volumen expandierende Innere der Sphäre sind alle Punkte, deren Abstand zu 0 kleiner als 1 ist. 
+# 
+# ```{admonition} Wichtige Beobachtung 
+# :class: note
+# Der euklidische Fall ($p = 2$) ist der einzige rotationsinvariante. 
+# 
+# Eine Rotation der Achsen in allen anderen Fällen könnte die Abstände zwischen Punkten verändern.
+# ```
 
-# ### Bedeutung von Metriken
+# ## Bedeutung von Metriken
 # 
 # Ein Beleg dafür, wie fundamental Distanz Metriken sind ist, dass sie für alle Formeln für Fläche, Volumen, Umfang, Länge usw. und sogar der Zahl $\pi$  grundlegend sind. 
 # 
@@ -193,7 +202,7 @@
 # ```{image} ../metrikenDE/pis.svg
 # ```
 # 
-# Für $p \in [1,2)$ sinkt der Wert von $\pi_p$ streng monoton, für $p \in (2, \infty)\cup \{\infty\} $ steigt er hingegen streng monoton. 
+# Für $p \in [1,2)$ sinkt der Wert von $\pi_p$ streng monoton, für $p \in (2, \infty)\cup \{\infty\} $ steigt er hingegen streng monoton und konvergiert zu 4. 
 # 
 # 
 # 

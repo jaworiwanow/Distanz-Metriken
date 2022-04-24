@@ -12,12 +12,15 @@
 from pandas import DataFrame, Series
 from numpy import abs, arange, sin, cos, pi, linspace, meshgrid, float, zeros, ones, pad, array
 from numpy.random import uniform
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure
+from matplotlib.ticker import MaxNLocator
 import plotly.graph_objects as go
 import plotly.express as px 
 from seaborn import heatmap
-import matplotlib.pyplot as plt
-from matplotlib.pyplot import figure
 from scipy.special import gamma
+from sympy import symbols, diff, integrate 
+
 #from myst_nb import glue        # Da glue mit den plot-outputs nicht funktioniert, wurde html export und raw html display verwendet.
 
 
@@ -96,16 +99,9 @@ df = unitvectors(prange, 2)
 X, Y, Z = unitvectors(prange, 3, 6)
 
 
-# In[4]:
-
-
-#prange = arange(1, 0, -0.1)
-#df = unitvectors(prange, 2)
-
-
 # ### 2D-Plot
 
-# In[5]:
+# In[4]:
 
 
 ### INTERAKTIVER PLOT 2D ###
@@ -158,7 +154,7 @@ fig.write_html("./2d.html")
 
 # ### 3D-Plot
 
-# In[6]:
+# In[5]:
 
 
 fig3 = go.Figure()
@@ -215,7 +211,7 @@ fig3.write_html("./3d.html")
 
 # ### Implementierung der Metriken und einer Funktion zur Abstandsbestimmung
 
-# In[7]:
+# In[6]:
 
 
 def minkowski(x,y, p):
@@ -290,7 +286,7 @@ def distances(prange, points):
 
 # ### Plotten der Abstände
 
-# In[8]:
+# In[7]:
 
 
 punkte = [[0.2, 0.3],[1,0], [1,0.5], [1,1], [2,3], [5,0], [5,1] ,[5,5]]
@@ -305,7 +301,7 @@ figb.show()
 figb.write_html("./b.html")
 
 
-# In[9]:
+# In[8]:
 
 
 punkte2 = [[[5,1.5],[-2.5,7]], [[-1,-1],[5,5]], [[1,5],[9,5]], [[-1,0],[-1,-6.3]], [[3.4,-3.2], [5.1, 2]] ]
@@ -338,13 +334,9 @@ figb2.show()
 figb2.write_html("./b2.html")
 
 
-# In[10]:
+# ### Abstandsgitter
 
-
-df2
-
-
-# In[11]:
+# In[9]:
 
 
 
@@ -367,16 +359,13 @@ def bordered(size=7):
     return bordered3
 
 
-# In[12]:
+# In[10]:
 
 
 chebyshev = bordered(2)
 
 
-# In[13]:
-
-
-
+# In[11]:
 
 
 figh, ax = plt.subplots(figsize=(10,10)) 
@@ -385,7 +374,7 @@ heatmap(chebyshev, annot= True, cmap= 'Blues', cbar=False, xticklabels=False, yt
 figh.savefig("cgrid.svg")
 
 
-# In[14]:
+# In[12]:
 
 
 manhattan = array([[6, 5, 4, 3, 4, 5, 6],
@@ -402,7 +391,7 @@ heatmap(manhattan, annot= True, cmap= 'Blues', cbar=False, xticklabels=False, yt
 figh.savefig("mgrid.svg")
 
 
-# In[15]:
+# In[13]:
 
 
 euclidean = array([[4.24, 3.61, 3.16, 3, 3.16, 3.61, 4.24],
@@ -419,7 +408,11 @@ heatmap(euclidean, annot= True, cmap= 'Blues', cbar=False, xticklabels=False, yt
 figh.savefig("egrid.svg")
 
 
-# In[16]:
+# ## Dimemnsions-Plots
+
+# ### Abstände
+
+# In[14]:
 
 
 dimensions = list(range(1,13))
@@ -439,7 +432,7 @@ df3['d'] = Series(ds)
 df3['dists'] = Series(dists)
 
 
-# In[17]:
+# In[15]:
 
 
 fighist = px.histogram(data_frame = df3, animation_frame='d', title='Abstände 5000 gleichverteilt gesampelter Punkte zum Nullpunkt', range_x=[0, 1], range_y=[0,300], nbins=100)
@@ -448,17 +441,19 @@ fighist = px.histogram(data_frame = df3, animation_frame='d', title='Abstände 5
 
 fighist.update_layout(showlegend=False)
 fighist.show()
-fighist.write_html("./fighist.html")
+fighist.write_html("./fighist1.html")
 
 
-# In[18]:
+# ### Einheitssphäre/Hyperwürfel
+
+# In[16]:
 
 
 def ratio_volume_hypercube_hypersphere(d):
     return (pi**(d/2))/(gamma((d/2+1)))/(2**d)
 
 
-# In[19]:
+# In[17]:
 
 
 volume_ratios = []
@@ -466,20 +461,21 @@ for i in range(1,12):
     volume_ratios.append(ratio_volume_hypercube_hypersphere(i))
 
 
-# In[20]:
+# In[18]:
 
 
 figure(figsize=(15, 10))
 
-plt.plot(volume_ratios, 'rx')
+plt.plot(volume_ratios, 'x')
 plt.xlabel('Dimension')
+plt.xticks(ticks = list(range(11)) ,labels = list(range(1,12)))
 plt.ylabel('Verhältnis Volumen Einheitssphäre/Hyperwürfel')
 plt.title('Verhältnis Volumen Einheitssphäre/Hyperwürfel')
 
 plt.savefig('ratio.svg')
 
 
-# In[21]:
+# In[19]:
 
 
 def distance_table(ps, ds):
@@ -496,13 +492,13 @@ ds = [1, 2, 3, 5, 10]
 ps = [1, 1/2, 1/4, 1/10, 1/100]
 
 
-# In[22]:
+# In[20]:
 
 
 print(distance_table(ps,ds).to_latex())
 
 
-# In[23]:
+# In[21]:
 
 
 usvols = []
@@ -511,85 +507,79 @@ for d in range(1,20):
     usvols.append((pi**(d/2))/(gamma((d/2+1))))
     hcvols.append(2**d)
 
-figure(figsize=(15, 10))
 
+# In[22]:
 
-# In[24]:
-
-
-from matplotlib.ticker import MaxNLocator
 
 ax = plt.figure(figsize=(15,10)).gca()
-ax.plot(usvols, 'ro')
+ax.plot(usvols, 'o')
 
 ax.set_xlabel('Dimension')
 ax.set_ylabel('Volumen der Einheitssphäre')
 ax.set_title('Volumen der Einheitssphäre nach Dimension')
-
-ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-
+ax.set_xticks(list(range(0,19)))
+ax.set_xticklabels(list(range(1,20)))
+#ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+#ax.set_xticklabels(list(range(0,20)))
 
 plt.savefig('USvols.svg')
 
 
-# In[25]:
+# In[23]:
 
 
 fig, axs = plt.subplots(1, 2, figsize=(30, 15), sharey=False)
 fig.suptitle('Volumen des Hyperwürfels nach Dimension')
-axs[0].plot(hcvols[0:5], 'ro--')
+axs[0].plot(hcvols[0:5], 'o--')
 #plt.xlabel('Dimension')
 #plt.ylabel('Volumen des Hyperwürfels')
 axs[0].set_title('Volumen des Hyperwürfels nach Dimension für $d \leq 4$')
-axs[1].plot(hcvols, 'ro--')
+axs[1].plot(hcvols, 'o--')
 axs[1].set_title('Volumen des Hyperwürfels nach Dimension für $d \leq 20$')
 axs[0].xaxis.set_major_locator(MaxNLocator(integer=True))
 axs[1].xaxis.set_major_locator(MaxNLocator(integer=True))
 plt.savefig('HCvols.svg')
 
 
-# In[26]:
+# In[24]:
 
 
-fig = go.Figure()
-fig.add_trace(
-    go.Scatter(y=hcvols))
+#fig = go.Figure()
+#fig.add_trace(
+#    go.Scatter(y=hcvols))
     
 
 
-layout = dict(
-    title = "Volumen des Hyperwürfels nach Dimension",
-    xaxis=dict(
-        rangeselector=dict(
-                    ),
-        rangeslider=dict(
-            visible=True
-        ),
-    
-    ),
-    yaxis=dict(
-        fixedrange= False,
-        autorange = True
-   )
-)
+#layout = dict(
+#    title = "Volumen des Hyperwürfels nach Dimension",
+#    xaxis=dict(
+#        rangeselector=dict(
+#                    ),
+#        rangeslider=dict(
+#            visible=True)),
+#    yaxis=dict(
+#        fixedrange= False,
+#        autorange = True   )
+#)
 #def zoom(layout, xrange):
   #  in_view = df.loc[fig.layout.xaxis.range[0]:fig.layout.xaxis.range[1]]
   #  fig.layout.yaxis.range = [in_view.High.min() - 10, in_view.High.max() + 10]
 
 
 
-fig.write_html("./experi.html")
+#fig.write_html("./experi.html")
 
 
-# In[27]:
+# ### $\pi$
+
+# In[25]:
 
 
-import sympy
-x= sympy.symbols('x')
+x= symbols('x')
 pis = []
 for n in arange(1,5.125,0.125):
-    f = (1+(abs(sympy.diff((1-x**n)**(1/n), x))**n))**(1/n)
-    integral = sympy.integrate(f, (x,0,1))
+    f = (1+(abs(diff((1-x**n)**(1/n), x))**n))**(1/n)
+    integral = integrate(f, (x,0,1))
     pis.append(2*integral.evalf())
 
 
@@ -605,10 +595,4 @@ dfpis['y'] = Series(pis).astype('float')
 
 
 dfpis.plot(x='x', y='y', style='o', figsize = (12,8), title = 'Änderung von $\pi $ nach dem Parameter p', legend = False, xlabel = 'Dimension' ).get_figure().savefig('./pis.svg')
-
-
-# In[ ]:
-
-
-
 

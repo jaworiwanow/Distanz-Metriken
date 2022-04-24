@@ -3,25 +3,31 @@
 In den folgenden Versionen wird dieses JupyterBook um folgendes ergänzt werden:
 ### Allgemein
 - englische Version
+- Erweiterung der Bibliographie 
 - Tippfehlerkorrektur und Layoutverbesserung
 
 ### Minkowski Metriken
 -  Klassifikationsbeispiel
 
-### Andere  Metriken
+### Andere Distanz-Metriken
 - Metriken für Graphen
-- Metriken auf Funktionenräumen
 - Hausdorff Distanz für kompakte Teilmengen metrischer Räume
 - Levenshtein Matrizen Generierung
-- Helly Metrik
+
+### Ähnlichkeitsindizes für Mengen
+- Jaccard  Index 
+- Sørensen-Dice Index
+- ...
 
 ### Cheatsheet
+- Erweiterung um hinzugefügte Metriken
 
 ### Code-Anhang
-- Veröffentlichung des Codes nach Aufbereitung
-
+- Aufbereitung des Codes
+    - Kommentierung
     - PEP 8 
     - typing
 
 ### Beweise
 - Erweiterung 
+

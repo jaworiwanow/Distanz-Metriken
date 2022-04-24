@@ -12,6 +12,7 @@ parts:
     - file: dimensionen
     - file: otherm
     - file: cheatsheet
+    - file: ausblick
   - caption: Anhang
     numbered: False
     chapters:

@@ -54,7 +54,7 @@
 # ```{image} ../metrikenDE/HCvols.svg
 # ```
 # 
-# Das Volumen der Einheitssphäre steigt hingegen überraschenderweise nur bis zur vierten Dimension und konvergiert danach gegen 0:
+# Das Volumen der Einheitssphäre steigt hingegen überraschenderweise nur bis zur fünften Dimension und konvergiert danach gegen 0:
 # ```{image} ../metrikenDE/USvols.svg
 # ```
 # 
@@ -131,9 +131,12 @@
 # - sinkt die Performanz
 # - erhöht sich der Ressourcenbedarf
 # - sinkt die Interpretierbarkeit 
+# - erhöht das Rauschen im Falle unbedeutsamer Dimensionen
 # 
 # ### Mögliche Vorteile hoher Dimensionen
-# 
-# 
+# Hochdimensionale Räume können jedoch auch 
+# - bessere Trennbarkeit aufweisen (SVM Kernel Trick, Fisher’sche Diskriminanzfunktion),
+# - einfacheres Finden globaler Minima ermöglichen und
+# - bessere Fehlerabschätzungen (da Fehlerquadrate mit höherer Wahrscheinlichkeit nahe zum Mittel sind) ermöglichen
 
 # 

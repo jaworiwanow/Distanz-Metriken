@@ -32,12 +32,11 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-import sympy
-x= sympy.symbols('x')
+x= symbols('x')
 pis = []
 for n in arange(1,5.125,0.125):
-    f = (1+(abs(sympy.diff((1-x**n)**(1/n), x))**n))**(1/n)
-    integral = sympy.integrate(f, (x,0,1))
+    f = (1+(abs(diff((1-x**n)**(1/n), x))**n))**(1/n)
+    integral = integrate(f, (x,0,1))
     pis.append(2*integral.evalf())
 -------------------
 

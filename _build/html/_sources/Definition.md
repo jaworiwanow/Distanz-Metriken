@@ -1,9 +1,11 @@
 # Definition
 
 ## Motivation
-Erst durch eine Metrik können wir Nähe, Ähnlichkeit und Distanz quantifizieren. 
+Erst durch eine Metrik können wir Abstand, Nähe und Ähnlichkeit quantifizieren. 
 
-Einige Verfahren die wir bereits kennengelernt haben (z.b.: kNN Regressoren und Classifier, k-Means, DBSCAN, Agglomerative Clustering ) und weitere noch unbekannte (bspw. in image recognition und NLP ) benötigen einen Abstandsbegriff. 
+Einige Verfahren die wir bereits kennengelernt haben (z.b.: kNN Regressoren und Classifier, k-Means, DBSCAN, Agglomerative Clustering ) und weitere noch unbekannte (bspw. in image recognition und NLP ) basieren explizit auf einen Abstandsbegriff. 
+
+Doch dieser ist weitaus fundamentaler; Geometrie, Stochastik, Integralrechnung und Differenzialrechnung benötigen einen Abstandsbegriff.
 
 Da verschiedene Metriken jedoch unterschiedliche Eigenschaften haben, kann ein Verständnis dieser von Vorteil sein. 
 
@@ -54,7 +56,9 @@ $\delta_\delta(x,y) = \begin{cases}
 0 & \text{falls } x = y \\
 1 & \text{sonst}
 \end{cases} $ 
-auf jeder Menge definierbar
+auf jeder Menge definierbar.
+
+Es ist sogar möglich Abstände auf hoch-abstrakte Konzepte wie z.B.: Spielstrategien (Helly Metrik) zu definieren. 
 ```
 
 ```{admonition} Geschichte
