@@ -122,8 +122,8 @@
 # $\delta : \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R} $
 # als 
 # 
-# \begin{equation} \delta_S(M,N) = \inf_{\substack{x \in M \\ y\in N}} \delta(x,y) 
-# \end{equation}
+# \begin{equation*} \delta_S(M,N) = \inf_{\substack{x \in M \\ y\in N}} \delta(x,y) 
+# \end{equation*}
 # 
 # definiert.
 # 
@@ -138,7 +138,33 @@
 # :class: warning
 # Wie erwähnt liefern uns verschiedene Metriken andere Distanzen, weswegen sich die Infima für verschiedene Metriken unterscheiden können. Die Distanz zweier Teilmengen des $\mathbb{R}^d$ ist deswegen nicht eindeutig. 
 # ```
+# #### Jaccard Distanz
+# Eine alternative Art des Abstandes stellt die Jaccard-Distanz dar. Sie misst die "Unähnlichkeit".
 # 
+# Seien $M, N \neq \empty $ zwei Mengen. Dann ist die Jaccard Distanz als
+# 
+# $$ \delta_J(M,N) = 1 -\frac{|M \cap N|}{|M \cup N|} =  \frac{|M \cup N| - |M \cap N| }{|M \cup N|} $$
+# 
+# definiert.
+# 
+# Sie entspricht der nicht-überlappenden Bereiche beider Mengen. 
+# 
+# ```{admonition} Jaccard Index
+# :class: note
+# Der Jaccard Abstand ist das Komplement zum Jaccard Index $\frac{|M \cap N|}{|M \cup N|} $. Mehr dazu im nächsten Exkurs.
+# ```
+# 
+# 
+# ```{dropdown} Notation
+# Seien $M, N \neq \empty$ zwei Mengen. Dann sind:
+# 
+# $$ M \cup N = \left{ x: x \in M \wedge \right} \text{ die Vereinigung von M und N und }$$
+# 
+# $$ M \cap N = \left{ x: \in M \land x \in N \right}  \text{ der Durchschnitt von M und N.} $$
+# 
+# 
+# Hier sind $\land $ das logische "und" und $\wedge$ das logische "oder" (einschließendes "und-oder") ist.
+# ```
 
 # 
 

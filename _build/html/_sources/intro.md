@@ -24,7 +24,7 @@ Es wird jedoch im Laufe der Zeit (auch nach der offiziellen Abgabe) erweitert we
 
 Auch sind die RISE/JupyterNotebook-Folien, die ich präsentiert hatte, verloren.  Ihre "Wiederherstellung" hat jedoch die geringste Priorität. 
 
-Dies ist die 'alpha'-Version vom 25.04.2022
+Dies ist die Version 1.1 vom 30.04.2022
 ```
 
 ```{tableofcontents}

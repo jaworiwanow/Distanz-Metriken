@@ -11,6 +11,7 @@ parts:
     - file: MinkowskiI
     - file: dimensionen
     - file: otherm
+    - file: setsimilarity
     - file: cheatsheet
     - file: ausblick
   - caption: Anhang
@@ -19,7 +20,8 @@ parts:
     - file: codeanhang
     - file: req    
     - file: beweise
-    - file: markdown
+    - file: bibliography
+    - file: changelog
 
     
 

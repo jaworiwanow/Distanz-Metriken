@@ -15,7 +15,7 @@ In den folgenden Versionen wird dieses JupyterBook um folgendes ergänzt werden:
 - Levenshtein Matrizen Generierung
 
 ### Ähnlichkeitsindizes für Mengen
-- Jaccard  Index 
+- Tversky Index
 - Sørensen-Dice Index
 - ...
 
