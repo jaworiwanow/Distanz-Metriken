@@ -521,7 +521,7 @@ als</p>
 <div class="section" id="jaccard-distanz">
 <h4>Jaccard Distanz<a class="headerlink" href="#jaccard-distanz" title="Permalink to this headline">¶</a></h4>
 <p>Eine alternative Art des Abstandes stellt die Jaccard-Distanz dar. Sie misst die “Unähnlichkeit”.</p>
-<p>Seien <span class="math notranslate nohighlight">\(M, N \neq \empty \)</span> zwei Mengen. Dann ist die Jaccard Distanz als</p>
+<p>Seien <span class="math notranslate nohighlight">\(M, N \neq \emptyset \)</span> zwei Mengen. Dann ist die Jaccard Distanz als</p>
 <div class="math notranslate nohighlight">
 \[ \delta_J(M,N) = 1 -\frac{|M \cap N|}{|M \cup N|} =  \frac{|M \cup N| - |M \cap N| }{|M \cup N|} \]</div>
 <p>definiert.</p>
@@ -537,12 +537,13 @@ Notation<div class="summary-down docutils">
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
-<p class="card-text">Seien <span class="math notranslate nohighlight">\(M, N \neq \empty\)</span> zwei Mengen. Dann sind:</p>
+<p class="card-text">Seien <span class="math notranslate nohighlight">\(M, N \neq \emptyset\)</span> zwei Mengen. Dann sind:</p>
 <div class="math notranslate nohighlight">
-\[ M \cup N = \left{ x: x \in M \wedge \right} \text{ die Vereinigung von M und N und }\]</div>
-<div class="math notranslate nohighlight">
-\[ M \cap N = \left{ x: \in M \land x \in N \right}  \text{ der Durchschnitt von M und N.} \]</div>
-<p class="card-text">Hier sind <span class="math notranslate nohighlight">\(\land \)</span> das logische “und” und <span class="math notranslate nohighlight">\(\wedge\)</span> das logische “oder” (einschließendes “und-oder”) ist.</p>
+\[\begin{split} \begin{aligned}
+M \cup N &amp;= \{ x: x \in M \wedge \} &amp; \text{  die Vereinigung von M und N} \\
+M \cap N &amp;= \{ x: x \in M \land x \in N \} &amp; \text{ der Durchschnitt von M und N} \\
+M\setminus N &amp;= \{ x:\in M \land x \notin N  \}  &amp; \text { die Differenz von M und N }
+\end{aligned}\end{split}\]</div>
 </div>
 </details></div>
 </div>
