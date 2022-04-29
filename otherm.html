@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Cheat-Sheet" href="cheatsheet.html" />
+    <link rel="next" title="5. Exkurs: Ähnlichkeitsmetriken für Mengen" href="setsimilarity.html" />
     <link rel="prev" title="3. Exkurs: das Dimensionsproblem" href="dimensionen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -127,13 +127,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="setsimilarity.html">
+   5. Exkurs: Ähnlichkeitsmetriken für Mengen
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="cheatsheet.html">
-   5. Cheat-Sheet
+   6. Cheat-Sheet
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ausblick.html">
-   6. Ausblick und Ziele
+   7. Ausblick und Ziele
   </a>
  </li>
 </ul>
@@ -159,8 +164,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown.html">
+  <a class="reference internal" href="bibliography.html">
    Literaturverzeichnis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="changelog.html">
+   Changelog
   </a>
  </li>
 </ul>
@@ -302,6 +312,11 @@ const thebe_selector_output = ".output, .cell_output"
        </span>
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jaccard-distanz">
+       Jaccard Distanz
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -378,6 +393,11 @@ const thebe_selector_output = ".output, .cell_output"
        </span>
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#jaccard-distanz">
+       Jaccard Distanz
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -404,11 +424,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[ \delta_H (x,y) = |\{i: x_i \neq y_i\}|  \]</div>
 <p>definiert.</p>
-<p>Dadurch lässt sie sich auch für nicht-numerische Daten wie bspw. Wörter anwenden und findet häufig Anwendungen in Fehlersuche<span id="id1">[<a class="reference internal" href="markdown.html#id12" title="W. Suntiamorntut. Hamming distance and normalization circuits. In 2007 International Conference on Communications, Circuits and Systems, volume, 1053-1056. 2007. doi:10.1109/ICCCAS.2007.4348227.">Sun07</a>]</span>  und natural language processing.</p>
-<p>Die Hamming Distanz findet ebenfalls Anwendung in der DNA-Sequenzanalyse<span id="id2">[<a class="reference internal" href="markdown.html#id10" title="Mina Mohammadi-Kambs, Kathrin Hölz, Mark M Somoza, and Albrecht Ott. Hamming distance as a concept in DNA molecular recognition. ACS Omega, 2(4):1302–1308, April 2017.">MKHolzSO17</a>]</span>.</p>
+<p>Dadurch lässt sie sich auch für nicht-numerische Daten wie bspw. Wörter anwenden und findet häufig Anwendungen in Fehlersuche<span id="id1">[<a class="reference internal" href="bibliography.html#id12" title="W. Suntiamorntut. Hamming distance and normalization circuits. In 2007 International Conference on Communications, Circuits and Systems, volume, 1053-1056. 2007. doi:10.1109/ICCCAS.2007.4348227.">Sun07</a>]</span>  und natural language processing.</p>
+<p>Die Hamming Distanz findet ebenfalls Anwendung in der DNA-Sequenzanalyse<span id="id2">[<a class="reference internal" href="bibliography.html#id10" title="Mina Mohammadi-Kambs, Kathrin Hölz, Mark M Somoza, and Albrecht Ott. Hamming distance as a concept in DNA molecular recognition. ACS Omega, 2(4):1302–1308, April 2017.">MKHolzSO17</a>]</span>.</p>
 <div class="note admonition">
 <p class="admonition-title"><span class="math notranslate nohighlight">\(d_h\)</span> ist eine Metrik</p>
-<p>Die Hamming Distanz ist für Elemente gleicher Länge eine Metrik, da sie alle Eigenschaften einer erfüllt<span id="id3">[<a class="reference internal" href="markdown.html#id4" title="Derek J.S. Robinson. An Introduction to Abstract Algebra. De Gruyter textbook. Walter de Gruyter, 2003. ISBN 9783110175448.">Rob03</a>]</span>.</p>
+<p>Die Hamming Distanz ist für Elemente gleicher Länge eine Metrik, da sie alle Eigenschaften einer erfüllt<span id="id3">[<a class="reference internal" href="bibliography.html#id4" title="Derek J.S. Robinson. An Introduction to Abstract Algebra. De Gruyter textbook. Walter de Gruyter, 2003. ISBN 9783110175448.">Rob03</a>]</span>.</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Interpretabilität</p>
@@ -441,7 +461,7 @@ const thebe_selector_output = ".output, .cell_output"
 \end{cases}\end{split}\]</div>
 <p>definiert.</p>
 <p>Die Definiton ist rekursiv und die Berechnung der Distanz geschieht meistens über Matritzen. (Eine genauere Ausführung wird in späteren Versionen dieses JupyterBooks folgen)</p>
-<p>Die Levenshtein Distanz wird häufig für unscharfe Suchen, Rechtschreibprüfungen und Duplikatssuche verwendet, findet aber auch in der Linguistik zur Ähnlichkeitsanalyse von Sprachen<span id="id4">[<a class="reference internal" href="markdown.html#id13" title="J.D. Thije and L. Zeevaert. Receptive Multilingualism: Linguistic Analyses, Language Policies, and Didactic Concepts. Hamburg studies on multilingualism. J. Benjamins Publishing Company, 2007. ISBN 9789027219268.">TZ07</a>]</span> gebrauch.</p>
+<p>Die Levenshtein Distanz wird häufig für unscharfe Suchen, Rechtschreibprüfungen und Duplikatssuche verwendet, findet aber auch in der Linguistik zur Ähnlichkeitsanalyse von Sprachen<span id="id4">[<a class="reference internal" href="bibliography.html#id13" title="J.D. Thije and L. Zeevaert. Receptive Multilingualism: Linguistic Analyses, Language Policies, and Didactic Concepts. Hamburg studies on multilingualism. J. Benjamins Publishing Company, 2007. ISBN 9789027219268.">TZ07</a>]</span> gebrauch.</p>
 <div class="tip admonition">
 <p class="admonition-title">Hamming vs Levenshtein Distanz</p>
 <p>Die Hamming und Levenshtein Distanz können für manche Zeichenketten zwar die selben Abstände liefern, tun es aber im allgemeinen nicht. So ist bspw
@@ -468,7 +488,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[ \delta_{LSC}(a,b) = 1 - \frac{|c|}{\max(|a|,|b|)} \]</div>
 <p>eine Metrik.</p>
-<p>Die Definiton dieser geht auf Daniel Bakkelund<span id="id5">[<a class="reference internal" href="markdown.html#id14" title="Daniel Bakkelund. An lcs-based string metric. self published, 2009. URL: https://www.researchgate.net/profile/Daniel-Bakkelund/publication/242065008_An_LCS-based_string_metric/links/57ff543b08ae56fae5f55421/An-LCS-based-string-metric.pdf.">Bak09</a>]</span>  zurück.</p>
+<p>Die Definiton dieser geht auf Daniel Bakkelund<span id="id5">[<a class="reference internal" href="bibliography.html#id14" title="Daniel Bakkelund. An lcs-based string metric. self published, 2009. URL: https://www.researchgate.net/profile/Daniel-Bakkelund/publication/242065008_An_LCS-based_string_metric/links/57ff543b08ae56fae5f55421/An-LCS-based-string-metric.pdf.">Bak09</a>]</span>  zurück.</p>
 <p>Informell ausgedrückt wird hier gemessen, inwieweit sich die längste gemeinsame Teilsequenz von der längsten Zeichenkette unterscheidet; der Wertebereich ist immer <span class="math notranslate nohighlight">\([0,1]\)</span></p>
 <div class="note admonition">
 <p class="admonition-title">Vergleich zur Levenshtein Distanz</p>
@@ -484,9 +504,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Seien <span class="math notranslate nohighlight">\(M, N \subset \mathbb{R}^d\)</span>. Dann ist die Distanz zwischen diesen für eine Metrik
 <span class="math notranslate nohighlight">\(\delta : \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R} \)</span>
 als</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1cedba1c-e141-487e-ba06-52dc148c052e">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-1cedba1c-e141-487e-ba06-52dc148c052e" title="Permalink to this equation">¶</a></span>\[\begin{equation} \delta_S(M,N) = \inf_{\substack{x \in M \\ y\in N}} \delta(x,y) 
-\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} \delta_S(M,N) = \inf_{\substack{x \in M \\ y\in N}} \delta(x,y) 
+\end{equation*}\]</div>
 <p>definiert.</p>
 <p>Dabei ist das Infimum <span class="math notranslate nohighlight">\(\inf\)</span> die größte untere Schranke. Im Falle, dass das Minimum angeommen wird, sind Infimum und Minimum gleich.</p>
 <div class="warning admonition">
@@ -498,6 +518,33 @@ als</p>
 <p>Wie erwähnt liefern uns verschiedene Metriken andere Distanzen, weswegen sich die Infima für verschiedene Metriken unterscheiden können. Die Distanz zweier Teilmengen des <span class="math notranslate nohighlight">\(\mathbb{R}^d\)</span> ist deswegen nicht eindeutig.</p>
 </div>
 </div>
+<div class="section" id="jaccard-distanz">
+<h4>Jaccard Distanz<a class="headerlink" href="#jaccard-distanz" title="Permalink to this headline">¶</a></h4>
+<p>Eine alternative Art des Abstandes stellt die Jaccard-Distanz dar. Sie misst die “Unähnlichkeit”.</p>
+<p>Seien <span class="math notranslate nohighlight">\(M, N \neq \empty \)</span> zwei Mengen. Dann ist die Jaccard Distanz als</p>
+<div class="math notranslate nohighlight">
+\[ \delta_J(M,N) = 1 -\frac{|M \cap N|}{|M \cup N|} =  \frac{|M \cup N| - |M \cap N| }{|M \cup N|} \]</div>
+<p>definiert.</p>
+<p>Sie entspricht der nicht-überlappenden Bereiche beider Mengen.</p>
+<div class="note admonition">
+<p class="admonition-title">Jaccard Index</p>
+<p>Der Jaccard Abstand ist das Komplement zum Jaccard Index <span class="math notranslate nohighlight">\(\frac{|M \cap N|}{|M \cup N|} \)</span>. Mehr dazu im nächsten Exkurs.</p>
+</div>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Notation<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text">Seien <span class="math notranslate nohighlight">\(M, N \neq \empty\)</span> zwei Mengen. Dann sind:</p>
+<div class="math notranslate nohighlight">
+\[ M \cup N = \left{ x: x \in M \wedge \right} \text{ die Vereinigung von M und N und }\]</div>
+<div class="math notranslate nohighlight">
+\[ M \cap N = \left{ x: \in M \land x \in N \right}  \text{ der Durchschnitt von M und N.} \]</div>
+<p class="card-text">Hier sind <span class="math notranslate nohighlight">\(\land \)</span> das logische “und” und <span class="math notranslate nohighlight">\(\wedge\)</span> das logische “oder” (einschließendes “und-oder”) ist.</p>
+</div>
+</details></div>
 </div>
 </div>
 </div>
@@ -534,10 +581,10 @@ als</p>
             <p class="prev-next-title"><span class="section-number">3. </span>Exkurs: das Dimensionsproblem</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="cheatsheet.html" title="next page">
+    <a class='right-next' id="next-link" href="setsimilarity.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Cheat-Sheet</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Exkurs: Ähnlichkeitsmetriken für Mengen</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
